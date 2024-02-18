@@ -9,19 +9,22 @@ from utils import (
 )
 from langchain_openai import OpenAIEmbeddings
 
-load_dotenv(".env")
+load_dotenv("../.env")
 
 
 def main():
     try:
-        docs = load_data("./data")
+        docs = load_data(
+            dir_path="./data",
+            glob="**/*.txt", #* only using .txt files for now (will update later)
+        )
         collection = load_mongodb_collection(
             client_url=os.getenv("MONGODB_ATLAS_CLUSTER_URI"),
             db_name=os.getenv("DB_NAME"),
             collection_name=os.getenv("COLLECTION_NAME")
         )
         chunks = split_documents(docs)
-        vector_store = create_vector_store(
+        create_vector_store(
             documents=chunks,
             collection=collection,
             embeddings=OpenAIEmbeddings(openai_api_key=os.getenv("OPENAI_API_KEY")),
