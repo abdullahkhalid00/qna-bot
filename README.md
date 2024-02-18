@@ -15,3 +15,5 @@ Use the sample data in the `./data` directory or use your own documents by pasti
 **Note:** Make sure to use `.txt` files.
 
 Set up your own `OpenAI API KEY` and `MongoDB URI` in a new `.env` file using the provided `.env-sample` file as reference.
+
+Run the `vector_store.py` script to create emebddings of your documents and store them on your remote MongoDB cluster.
