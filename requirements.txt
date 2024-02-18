@@ -1,0 +1,8 @@
+python-dotenv
+pymongo
+langchain==0.1.6
+langchain_community==0.0.19
+langchain_openai
+openai
+tiktoken
+gradio
